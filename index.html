@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>画像クリックで動画再生</title>
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  position: relative;
+}
+
+.media {
+  width: 300px; /* 動画の幅を指定 */
+  height: auto;  /* 動画の高さを自動調整 */
+  display: block;
+}
+
+.media img, .media video {
+  width: 200%;
+  height: 200%;
+  object-fit: cover; /* <--- ここでアスペクト比の調整 */
+  display: block;
+}
+
+.media video {
+  display: none;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="media">
+    <img id="myImage" src="image.png" alt="画像" onclick="switchMedia()">
+    <video id="myVideo" controls loop>
+      <source src="video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+<script>
+function switchMedia() {
+  const image = document.getElementById("myImage");
+  const video = document.getElementById("myVideo");
+
+  image.style.display = "none";
+  video.style.display = "block";
+  video.play();
+}
+</script>
+</body>
+</html>
