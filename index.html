@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>画像クリックで動画再生</title>
+<title>画像クリックでYouTube動画再生</title>
 <style>
 body {
   display: flex;
@@ -16,15 +16,14 @@ body {
 }
 
 .media {
-  width: 300px; /* 動画の幅を指定 */
-  height: auto;  /* 動画の高さを自動調整 */
+  width: 300px; /* 必要に応じて調整 */
+  height: auto;  /* アスペクト比を維持 */
   display: block;
 }
 
-.media img, .media video {
-  width: 200%;
-  height: 200%;
-  object-fit: cover; /* <--- ここでアスペクト比の調整 */
+.media iframe { /* iframe要素のスタイルを追加 */
+  width: 100%;
+  height: 100%;
   display: block;
 }
 
@@ -37,10 +36,7 @@ body {
 <div class="container">
   <div class="media">
     <img id="myImage" src="image.png" alt="画像" onclick="switchMedia()">
-    <video id="myVideo" controls loop>
-      <source src="video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <iframe id="myVideo"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:none;"></iframe>
   </div>
 </div>
 
@@ -48,10 +44,10 @@ body {
 function switchMedia() {
   const image = document.getElementById("myImage");
   const video = document.getElementById("myVideo");
-
-  image.style.display = "none";
+  const youtubeVideoId = "YOUR_YOUTUBE_VIDEO_ID"; // ここにYouTube動画のIDを入力
+  video.src = `https://youtu.be/Qs_na8clE7o?si=7BlGvbFd-fgNGHBv`;
   video.style.display = "block";
-  video.play();
+  image.style.display = "none";
 }
 </script>
 </body>
