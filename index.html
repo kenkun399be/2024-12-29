@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>画像クリックでYouTube動画再生</title>
+<title>2024/12/29</title>
 <style>
 body {
   display: flex;
@@ -13,12 +13,14 @@ body {
 
 .container {
   position: relative;
+  text-align: center; 
 }
 
 .media {
-  width: 600px; /* 必要に応じて調整 */
-  height: 337.5px; /* 600 * 0.5625 = 337.5 */
+  width: 600px; 
+  height: 337.5px;
   display: block;
+  margin-bottom: 10px; 
 }
 
 .media iframe {
@@ -36,6 +38,10 @@ body {
 .media video {
   display: none;
 }
+
+.unlock-text {
+  font-size: 16px;
+}
 </style>
 </head>
 <body>
@@ -44,16 +50,16 @@ body {
       <img id="myImage" src="image.png" alt="画像" onclick="switchMedia()">
       <iframe id="myVideo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:none;"></iframe>
     </div>
-  </div>
+    <div class="unlock-text">タップでカギを開ける</div> </div>
 
   <script>
     function switchMedia() {
       const image = document.getElementById("myImage");
       const video = document.getElementById("myVideo");
-      const youtubeVideoId = "2KgF6NqKyEk";
-      video.src = `https://www.youtube.com/embed/${youtubeVideoId}`;
+      video.src = `https://www.youtube.com/embed/GKkqtBcgMUM`;
       video.style.display = "block";
       image.style.display = "none";
+      document.querySelector('.unlock-text').style.display = "none";
     }
   </script>
 </body>
