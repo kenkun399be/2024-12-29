@@ -16,15 +16,21 @@ body {
 }
 
 .media {
-  width: 300px; /* 必要に応じて調整 */
-  height: auto;  /* アスペクト比を維持 */
+  width: 600px; /* 必要に応じて調整 */
+  height: 337.5px; /* 600 * 0.5625 = 337.5 */
   display: block;
 }
 
-.media iframe { /* iframe要素のスタイルを追加 */
+.media iframe {
   width: 100%;
   height: 100%;
   display: block;
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .media video {
@@ -33,22 +39,22 @@ body {
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="media">
-    <img id="myImage" src="image.png" alt="画像" onclick="switchMedia()">
-    <iframe id="myVideo"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:none;"></iframe>
+  <div class="container">
+    <div class="media">
+      <img id="myImage" src="image.png" alt="画像" onclick="switchMedia()">
+      <iframe id="myVideo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:none;"></iframe>
+    </div>
   </div>
-</div>
 
-<script>
-function switchMedia() {
-  const image = document.getElementById("myImage");
-  const video = document.getElementById("myVideo");
-  const youtubeVideoId = "YOUR_YOUTUBE_VIDEO_ID"; // ここにYouTube動画のIDを入力
-  video.src = `https://www.youtube.com/embed/q8n5sepFL9WsbGAZ`;
-  video.style.display = "block";
-  image.style.display = "none";
-}
-</script>
+  <script>
+    function switchMedia() {
+      const image = document.getElementById("myImage");
+      const video = document.getElementById("myVideo");
+      const youtubeVideoId = "2KgF6NqKyEk";
+      video.src = `https://www.youtube.com/embed/${youtubeVideoId}`;
+      video.style.display = "block";
+      image.style.display = "none";
+    }
+  </script>
 </body>
 </html>
